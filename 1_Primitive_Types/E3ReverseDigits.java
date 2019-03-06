@@ -1,3 +1,7 @@
+/*
+ * Write a program to reverse digits. Time complexity is O(n), where n is no.of digits in input number
+ *
+*/
 public class E3ReverseDigits {
     public static void main(String[] args) {
         int input = 623;
