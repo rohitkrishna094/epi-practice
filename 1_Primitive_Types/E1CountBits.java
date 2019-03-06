@@ -1,6 +1,6 @@
 /*
  *  Write a program to count the number of bits that are set to 1 in an integer.
- * 
+ * Time complexity for this program is O(n)
 */
 public class E1CountBits {
 
