@@ -13,9 +13,34 @@ public class E6PrimesToN {
         if (args.length == 1) {
             n = Integer.parseInt(args[0]);
         }
-        List<Integer> res = getPrimes_bruteForce(n);
-        System.out.println(res);
-        System.out.println(res.size());
+        List<Integer> res1 = getPrimes_bruteForce(n);
+        List<Integer> res2 = getPrimes_Sieve(n);
+        System.out.println(res1);
+        System.out.println(res1.size());
+        System.out.println(res2);
+        System.out.println(res2.size());
+    }
+
+    /*
+     * Time Complexity is O(n * (n/2 + n/3 + n/5 + ...)) = O(n * n * logn * logn)
+     * but space complexity is O(n) since we are using a boolean array
+     * 
+     */
+    public static List<Integer> getPrimes_Sieve(int n) {
+        boolean[] arePrimes = new boolean[n];
+        Arrays.fill(arePrimes, true);
+        arePrimes[0] = false;
+        arePrimes[1] = false;
+        List<Integer> res = new ArrayList<>();
+        for (int i = 2; i < arePrimes.length; i++) {
+            if (arePrimes[i])
+                res.add(i);
+            // fill to false
+            for (int j = i; j < arePrimes.length; j = j + i) {
+                arePrimes[j] = false;
+            }
+        }
+        return res;
     }
 
     /*
@@ -43,7 +68,4 @@ public class E6PrimesToN {
         return true;
     }
 
-    public static List<Integer> getPrimes_Sieve(int n) {
-        return null;
-    }
 }
