@@ -1,3 +1,6 @@
+/*
+ * Write a program to rotate the matrix. TC is O(n ^ 2)
+*/
 
 public class E10RotateMatrix {
     public static void main(String[] args) {
