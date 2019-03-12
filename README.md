@@ -10,3 +10,4 @@ There are other types for letters like P for problem(found at back of chapter) a
 E - Example
 V - Variant
 in - Incomplete
+PR - Practice
