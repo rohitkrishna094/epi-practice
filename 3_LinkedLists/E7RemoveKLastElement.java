@@ -1,35 +1,29 @@
-/*
- * Write a program that takes a linked list, s,f(start, finish) and reverse nodes from sth node to fth node(both inclusive).
- * Numbering begins at 1 i.e., head node is the first node(number 1 node). Try not to allocate any additional nodes
-*/
-public class E2ReverseSubList {
+public class E7RemoveKLastElement {
     public static void main(String[] args) {
         int[] a = { 11, 3, 5, 7, 2 };
         ListNode head = constructLL(a);
         printLL(head);
-        ListNode res = reverseSublist(head, 2, 4);
-        printLL(res);
+        head = removeKthLastElement(head, 3);
+        printLL(head);
     }
 
-    public static ListNode reverseSublist(ListNode l, int start, int finish) {
-        if (start == finish)
-            return l;
+    public static ListNode removeKthLastElement(ListNode head, int k) {
         ListNode dummy = new ListNode(0);
-        dummy.next = l;
-        ListNode subListHead = dummy;
-        int k = 1;
-        while (k++ < start) {
-            subListHead = subListHead.next;
+        dummy.next = head;
+        ListNode first = dummy.next;
+        while (k > 0) {
+            first = first.next;
+            k--;
         }
 
-        // start reversing
-        ListNode subListIter = subListHead.next;
-        while (start++ < finish) {
-            ListNode temp = subListIter.next;
-            subListIter.next = temp.next;
-            temp.next = subListHead.next;
-            subListHead.next = temp;
+        ListNode second = dummy;
+        while (first != null) {
+            second = second.next;
+            first = first.next;
         }
+
+        // second points to (k+1)th last node, delete its succesor
+        second.next = second.next.next;
         return dummy.next;
     }
 

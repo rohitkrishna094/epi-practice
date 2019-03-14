@@ -8,7 +8,7 @@ public class E6DeleteNodeNotTail {
 
     // Assume that the parameter is exactly the node to delete and that it is not
     // the last element or tail in linkedlist
-    public static delete(ListNode nodeToDelete) {
+    public static void delete(ListNode nodeToDelete) {
         // copy next node's data into this node
         nodeToDelete.data = nodeToDelete.next.data;
         nodeToDelete.next = nodeToDelete.next.next;
